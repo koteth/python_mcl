@@ -3,9 +3,9 @@
 from distutils.core import setup
 
 setup(
-    name='MCL Markov Clustering',
+    name='MCL Markov Cluster',
     version='0.3',
-    description='Markov Clustering algoritm for Graphs',
+    description='Markov Cluster algorithm implementation',
     scripts = [
         'mcl/mcl_clustering.py'
     ],

@@ -3,22 +3,22 @@
 This module implements the Markov Cluster algorithm created by Stijn van Dongen and 
 described in http://www.library.uu.nl/digiarchief/dip/diss/1895620/inhoud.htm.
 
-This implementation si not yet optimized for large networks.
+This implementation is not yet optimized for large networks.
 
 ![example] (example.png)
 
 
-## Installation:
+## Installation
 
 python setup.py install
 
-##Usage:
+##Usage
 
-###Command line:
+###Command line
 
     Usage: mcl_clustering.py [options] <input_matrix>
 
-    Options:
+    Options
       -h, --help            show this help message and exit
       -e EXPAND_FACTOR, --expand_factor=EXPAND_FACTOR
                             expand factor (default: 2)
@@ -41,7 +41,7 @@ An example is the file example.csv.
 try mcl_clustering.py -e 3 example.csv
 
 
-###Code:
+###Code
         
 ####Using numpy adjacency matrix
 
@@ -66,17 +66,16 @@ try mcl_clustering.py -e 3 example.csv
                        mult_factor = <mult_factor>)
 
     
-    Output:
+    Output
         M = otuput matrix
         clusters = dict with keys = [<cluster id>] values = [<vertex id>]
 
-##Requirements:
+##Requirements
     
     numpy
     networkx
 
-
-##Parameters:
+##Parameters
 
     -i --inflate-factor
     -e --expand-factor
@@ -84,14 +83,13 @@ try mcl_clustering.py -e 3 example.csv
     -l --max-loops
     -s --show-graph     show graph with networkx
 
+## References
 
-## References:
-
-[1]   Stijn van Dongen, Graph Clustering by Flow Simulation.
+* [1]   Stijn van Dongen, Graph Clustering by Flow Simulation.
       PhD thesis, University of Utrecht, May 2000.
       ( http://www.library.uu.nl/digiarchief/dip/diss/1895620/inhoud.htm )
 
-[2]   Stijn van Dongen. A cluster algorithm for graphs.  Technical Report
+* [2]   Stijn van Dongen. A cluster algorithm for graphs.  Technical Report
       INS-R0010, National Research Institute for Mathematics and Computer
       Science in the Netherlands, Amsterdam, May 2000.
       ( http://www.cwi.nl/ftp/CWIreports/INS/INS-R0010.ps.Z )

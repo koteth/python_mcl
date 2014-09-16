@@ -43,7 +43,7 @@ def draw(G, A, cluster_map):
 
     colors = []
     for i in range(len(G.nodes())):
-        colors.append( clust_map.get(i, 100 ))
+        colors.append(clust_map.get(i, 100))
 
     pos = nx.spring_layout(G)
     nx.draw_networkx_nodes(G, pos,node_size = 200, node_color =colors , cmap=plt.cm.Blues )
@@ -69,7 +69,6 @@ def stop(M, i):
 def mcl(M, expand_factor = 2, inflate_factor = 2, max_loop = 10 , mult_factor = 1):
     M = add_diag(M, mult_factor)
     M = normalize(M)
-
 
     for i in range(max_loop):
         logging.info("loop", i)
@@ -149,6 +148,16 @@ def get_graph(csv_filename):
     G = nx.from_numpy_matrix(np.matrix(M))
     return np.array(M), G
 
+def clusters_to_output(clusters, options):
+    if options.output and len(options.output)>0:
+        f = open(options.output, 'w')
+        for k, v in clusters.items():
+            f.write("%s|%s\n" % (k, ", ".join(map(str, v)) ))
+        f.close()
+    else:    
+        print "Clusters:"
+        for k, v in clusters.items():
+            print k, v
 
 if __name__ == '__main__':
 
@@ -165,15 +174,7 @@ if __name__ == '__main__':
                                mult_factor = options.mult_factor)
     print time.time(), "done\n"
 
-    if options.output and len(options.output)>0:
-        f = open(options.output, 'w')
-        for k, v in clusters.items():
-            f.write("%s|%s\n" % (k, ", ".join(map(str, v)) ))
-        f.close()
-    else:    
-        print "Clusters:"
-        for k, v in clusters.items():
-            print k, v
+    clusters_to_output(clusters, options)
 
     if options.draw:
         print time.time(), "drawing..."

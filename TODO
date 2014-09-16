@@ -1,0 +1,4 @@
+- improve graph visualization
+- improve unittest
+- use numpy sparse matrices instead of numpy arrays
+- speedup the algo
