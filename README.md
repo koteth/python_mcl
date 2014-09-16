@@ -5,6 +5,9 @@ described in http://www.library.uu.nl/digiarchief/dip/diss/1895620/inhoud.htm.
 
 This implementation si not yet optimized for large networks.
 
+![example] (example.png)
+
+
 ## Installation:
 
 python setup.py install
@@ -46,10 +49,10 @@ try mcl_clustering.py -e 3 example.csv
 
     A = <your matrix>
 
-    M, clusters = mcl(A, expand_factor = options.expand_factor,
-                       inflate_factor = options.inflate_factor,
-                       max_loop = options.max_loop,
-                       mult_factor = options.mult_factor)
+    M, clusters = mcl(A, expand_factor = <expand_factor>,
+                       inflate_factor = <inflate_factor>,
+                       max_loop = <max_loop>,
+                       mult_factor = <mult_factor>)
 
 ####Using a networkx graph
 
@@ -57,17 +60,17 @@ try mcl_clustering.py -e 3 example.csv
 
     G = <your graph>
 
-    M, clusters = networkx_mcl(G, expand_factor = options.expand_factor,
-                       inflate_factor = options.inflate_factor,
-                       max_loop = options.max_loop,
-                       mult_factor = options.mult_factor)
+    M, clusters = networkx_mcl(G, expand_factor = <expand_factor>,
+                       inflate_factor = <inflate_factor>,
+                       max_loop = <max_loop>,
+                       mult_factor = <mult_factor>)
 
     
     Output:
         M = otuput matrix
         clusters = dict with keys = [<cluster id>] values = [<vertex id>]
 
-##Requirements
+##Requirements:
     
     numpy
     networkx
@@ -82,7 +85,7 @@ try mcl_clustering.py -e 3 example.csv
     -s --show-graph     show graph with networkx
 
 
-## References
+## References:
 
 [1]   Stijn van Dongen, Graph Clustering by Flow Simulation.
       PhD thesis, University of Utrecht, May 2000.

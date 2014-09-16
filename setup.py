@@ -9,7 +9,6 @@ setup(
     scripts = [
         'mcl/mcl_clustering.py'
     ],
-    author='koteth',
     install_requires = ['numpy', 'networkx'],
     keywords = "MCL markov clustering graph",
     author='Gabriele Lami',

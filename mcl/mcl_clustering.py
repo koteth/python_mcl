@@ -165,7 +165,12 @@ if __name__ == '__main__':
                                mult_factor = options.mult_factor)
     print time.time(), "done\n"
 
-    if not options.output:
+    if options.output and len(options.output)>0:
+        f = open(options.output, 'w')
+        for k, v in clusters.items():
+            f.write("%s|%s\n" % (k, ", ".join(map(str, v)) ))
+        f.close()
+    else:    
         print "Clusters:"
         for k, v in clusters.items():
             print k, v
