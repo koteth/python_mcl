@@ -12,6 +12,6 @@ setup(
     author='koteth',
     install_requires = ['numpy', 'networkx'],
     keywords = "MCL markov clustering graph",
-    author_email='koteth@gmail.com',
+    author='Gabriele Lami',
     packages=['mcl'],
-     )
+)
