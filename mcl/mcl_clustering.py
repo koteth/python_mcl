@@ -46,14 +46,15 @@ def draw(G, A, cluster_map):
         colors.append(clust_map.get(i, 100))
 
     pos = nx.spring_layout(G)
-    nx.draw_networkx_nodes(G, pos,node_size = 200, node_color =colors , cmap=plt.cm.Blues )
-    nx.draw_networkx_edges(G,pos, alpha=0.5)
 
     from matplotlib.pylab import matshow, show, cm
-    matshow(A, fignum=100, cmap=cm.gray)
+    plt.figure(2)
+    nx.draw_networkx_nodes(G, pos,node_size = 200, node_color =colors , cmap=plt.cm.Blues )
+    nx.draw_networkx_edges(G,pos, alpha=0.5)
+    matshow(A, fignum=1, cmap=cm.gray)
+    plt.show()
     show()
 
-    plt.show()
 
 def stop(M, i):
 

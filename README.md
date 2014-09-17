@@ -8,7 +8,7 @@ This implementation is not yet optimized for large networks.
 ![example] (example.png)
 
 
-## Installation
+##Installation
 
 python setup.py install
 
@@ -34,11 +34,13 @@ python setup.py install
       -d, --draw-graph      show graph with networkx (default: False)
 
 
-The input matrix must be as comma separated value file representing the 
+The input matrix must be as comma-separated value file representing the 
 adjacency matrix. 
 
-An example is the file example.csv.
-try mcl_clustering.py -e 3 example.csv
+An example is the file example.csv in examples dir.
+
+try: 
+    mcl_clustering.py -d -e 3 <example_path>/example.csv
 
 
 ###Code
@@ -75,15 +77,8 @@ try mcl_clustering.py -e 3 example.csv
     numpy
     networkx
 
-##Parameters
 
-    -i --inflate-factor
-    -e --expand-factor
-    -m --multiply-factor
-    -l --max-loops
-    -s --show-graph     show graph with networkx
-
-## References
+##References
 
 * [1]   Stijn van Dongen, Graph Clustering by Flow Simulation.
       PhD thesis, University of Utrecht, May 2000.
