@@ -89,3 +89,7 @@ try:
       Science in the Netherlands, Amsterdam, May 2000.
       ( http://www.cwi.nl/ftp/CWIreports/INS/INS-R0010.ps.Z )
 
+
+# license
+
+MIT
