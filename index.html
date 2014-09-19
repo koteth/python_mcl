@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Python mcl : markov cluster algorithm - python">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Python mcl</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/koteth/python_mcl">View on GitHub</a>
+
+          <h1 id="project_title">Python mcl</h1>
+          <h2 id="project_tagline">markov cluster algorithm - python</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/koteth/python_mcl/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/koteth/python_mcl/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="mcl-algorithm" class="anchor" href="#mcl-algorithm"><span class="octicon octicon-link"></span></a>MCL algorithm</h1>
+
+<p>This module implements the Markov Cluster algorithm created by Stijn van Dongen and 
+described in <a href="http://www.library.uu.nl/digiarchief/dip/diss/1895620/inhoud.htm">http://www.library.uu.nl/digiarchief/dip/diss/1895620/inhoud.htm</a>.</p>
+
+<p>This implementation is not yet optimized for large networks.</p>
+
+<p><img src="example.png" alt="example"></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>python setup.py install</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="command-line" class="anchor" href="#command-line"><span class="octicon octicon-link"></span></a>Command line</h3>
+
+<pre><code>Usage: mcl_clustering.py [options] &lt;input_matrix&gt;
+
+Options
+  -h, --help            show this help message and exit
+  -e EXPAND_FACTOR, --expand_factor=EXPAND_FACTOR
+                        expand factor (default: 2)
+  -i INFLATE_FACTOR, --inflate_factor=INFLATE_FACTOR
+                        inflate factor (default: 2)
+  -m MULT_FACTOR, --mult_factor=MULT_FACTOR
+                        multiply factor (default: 2)
+  -l MAX_LOOP, --max_loops=MAX_LOOP
+                        max loops (default: 60)
+  -o FILE, --output=FILE
+                        output (default: stdout)
+  -v, --verbose         verbose (default: True)
+  -d, --draw-graph      show graph with networkx (default: False)
+</code></pre>
+
+<p>The input matrix must be as comma-separated value file representing the 
+adjacency matrix. </p>
+
+<p>An example is the file example.csv in examples dir.</p>
+
+<p>try: 
+    mcl_clustering.py -d -e 3 /example.csv</p>
+
+<h3>
+<a name="code" class="anchor" href="#code"><span class="octicon octicon-link"></span></a>Code</h3>
+
+<h4>
+<a name="using-numpy-adjacency-matrix" class="anchor" href="#using-numpy-adjacency-matrix"><span class="octicon octicon-link"></span></a>Using numpy adjacency matrix</h4>
+
+<pre><code>from mcl_clustering import mcl
+
+A = &lt;your matrix&gt;
+
+M, clusters = mcl(A, expand_factor = &lt;expand_factor&gt;,
+                   inflate_factor = &lt;inflate_factor&gt;,
+                   max_loop = &lt;max_loop&gt;,
+                   mult_factor = &lt;mult_factor&gt;)
+</code></pre>
+
+<h4>
+<a name="using-a-networkx-graph" class="anchor" href="#using-a-networkx-graph"><span class="octicon octicon-link"></span></a>Using a networkx graph</h4>
+
+<pre><code>from mcl_clustering import networkx_mcl
+
+G = &lt;your graph&gt;
+
+M, clusters = networkx_mcl(G, expand_factor = &lt;expand_factor&gt;,
+                   inflate_factor = &lt;inflate_factor&gt;,
+                   max_loop = &lt;max_loop&gt;,
+                   mult_factor = &lt;mult_factor&gt;)
+
+
+Output
+    M = otuput matrix
+    clusters = dict with keys = [&lt;cluster id&gt;] values = [&lt;vertex id&gt;]
+</code></pre>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<pre><code>numpy
+networkx
+</code></pre>
+
+<h2>
+<a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>References</h2>
+
+<ul>
+<li><p>[1]   Stijn van Dongen, Graph Clustering by Flow Simulation.
+  PhD thesis, University of Utrecht, May 2000.
+  ( <a href="http://www.library.uu.nl/digiarchief/dip/diss/1895620/inhoud.htm">http://www.library.uu.nl/digiarchief/dip/diss/1895620/inhoud.htm</a> )</p></li>
+<li><p>[2]   Stijn van Dongen. A cluster algorithm for graphs.  Technical Report
+  INS-R0010, National Research Institute for Mathematics and Computer
+  Science in the Netherlands, Amsterdam, May 2000.
+  ( <a href="http://www.cwi.nl/ftp/CWIreports/INS/INS-R0010.ps.Z">http://www.cwi.nl/ftp/CWIreports/INS/INS-R0010.ps.Z</a> )</p></li>
+</ul><h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>license</h1>
+
+<p>MIT</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Python mcl maintained by <a href="https://github.com/koteth">koteth</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
