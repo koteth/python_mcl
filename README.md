@@ -3,7 +3,7 @@
 This module implements the Markov Cluster algorithm created by Stijn van Dongen and 
 described in http://www.library.uu.nl/digiarchief/dip/diss/1895620/inhoud.htm.
 
-This implementation is not yet optimized for large networks.
+This implementation is still in beta and is not yet optimized for large networks.
 
 ![example] (example.png)
 
