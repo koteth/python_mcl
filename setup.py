@@ -3,9 +3,10 @@
 from distutils.core import setup
 
 setup(
-    name='MCL Markov Cluster',
+    name='MCL_Markov_Cluster',
     version='0.3',
     description='Markov Cluster algorithm implementation',
+    url = 'https://github.com/koteth/python_mcl', 
     scripts = [
         'mcl/mcl_clustering.py'
     ],
