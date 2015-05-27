@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from mcl_clustering import *
+from .mcl_clustering import *
 import logging
 
 #TODO: improveme

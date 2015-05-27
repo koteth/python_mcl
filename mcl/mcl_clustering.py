@@ -86,13 +86,13 @@ def networkx_mcl(G, expand_factor = 2, inflate_factor = 2, max_loop = 10 , mult_
     return mcl(np.array(A.todense()), expand_factor, inflate_factor, max_loop, mult_factor)
 
 def print_info(options):
-    print "-"*60
-    print "MARKOV CLUSTERING:"
-    print "-" * 60
-    print "  expand_factor: %s" % options.expand_factor
-    print "  inflate_factor: %s" % options.inflate_factor
-    print "  mult factor: %s" % options.mult_factor
-    print "  max loops: %s\n" % options.max_loop
+    print("-" * 60)
+    print("MARKOV CLUSTERING:")
+    print("-" * 60)
+    print("  expand_factor: %s" % options.expand_factor)
+    print("  inflate_factor: %s" % options.inflate_factor)
+    print("  mult factor: %s" % options.mult_factor)
+    print("  max loops: %s\n" % options.max_loop)
 
 def get_options():
     usage = "usage: %prog [options] <input_matrix>"
@@ -144,7 +144,7 @@ def get_graph(csv_filename):
     M = []
     for r in open(csv_filename):
         r = r.strip().split(",")
-        M.append( map( lambda x: float(x.strip()), r))
+        M.append(list(map(lambda x: float(x.strip()), r)))
 
     G = nx.from_numpy_matrix(np.matrix(M))
     return np.array(M), G
@@ -155,10 +155,10 @@ def clusters_to_output(clusters, options):
         for k, v in clusters.items():
             f.write("%s|%s\n" % (k, ", ".join(map(str, v)) ))
         f.close()
-    else:    
-        print "Clusters:"
+    else:
+        print("Clusters:")
         for k, v in clusters.items():
-            print k, v
+            print('{}, {}'.format(k, v))
 
 if __name__ == '__main__':
 
@@ -166,18 +166,18 @@ if __name__ == '__main__':
     print_info(options)
     M, G = get_graph(filename)
 
-    print " number of nodes: %s\n" % M.shape[0]
+    print(" number of nodes: %s\n" % M.shape[0])
 
-    print time.time(), "evaluating clusters..."
+    print("{}: {}".format(time.time(), "evaluating clusters..."))
     M, clusters = networkx_mcl(G, expand_factor = options.expand_factor,
                                inflate_factor = options.inflate_factor,
                                max_loop = options.max_loop,
                                mult_factor = options.mult_factor)
-    print time.time(), "done\n"
+    print("{}: {}".format(time.time(), "done\n"))
 
     clusters_to_output(clusters, options)
 
     if options.draw:
-        print time.time(), "drawing..."
+        print("{}: {}".format(time.time(), "drawing..."))
         draw(G, M, clusters)
-        print time.time(), "done"
+        print("{}: {}".format(time.time(), "done"))
