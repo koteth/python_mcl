@@ -72,7 +72,7 @@ def mcl(M, expand_factor = 2, inflate_factor = 2, max_loop = 10 , mult_factor = 
     M = normalize(M)
 
     for i in range(max_loop):
-        logging.info("loop", i)
+        logging.info("loop %s" % i)
         M = inflate(M, inflate_factor)
         M = expand(M, expand_factor)
         if stop(M, i): break
